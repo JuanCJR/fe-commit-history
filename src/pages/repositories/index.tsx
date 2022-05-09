@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
-  HStack,
   Table,
   Tbody,
   Tr,
@@ -9,16 +8,7 @@ import {
   createStandaloneToast,
   Th,
   Thead,
-  Flex,
-  VStack,
-  FormControl,
-  Text,
-  Select,
-  IconButton,
-  Input,
   SimpleGrid,
-  Divider,
-  Center,
 } from "@chakra-ui/react";
 import { FaBook } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
@@ -31,7 +21,7 @@ import { useRepository } from "../../states/useRepository";
 
 export const Repositories = () => {
   const { repository, setRepository } = useRepository();
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const [isOpen, setOpen] = useState(false);
   const { username } = useParams();
   const navigate = useNavigate();
@@ -40,7 +30,7 @@ export const Repositories = () => {
   useEffect(() => {
     async function loadData() {
       if (username) {
-        const repositories = await getRepositories(username, 1, 6);
+        const repositories = await getRepositories(username, 1, 40);
         if (repositories.statusCode) {
           toast({
             title: repositories.message,
@@ -63,7 +53,7 @@ export const Repositories = () => {
 
   return (
     <BasePage isLoading={isLoading} isOpen={isOpen}>
-      <PagePrincipalBox title="Repositories" icon={FaBook}>
+      <PagePrincipalBox title="Repository List" icon={FaBook}>
         <BasicBox>
           <SimpleGrid h={"60vh"} column={1} spacing={2}>
             <Box
