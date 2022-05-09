@@ -1,7 +1,7 @@
 import { RouteProps } from "react-router-dom";
 import { Commits } from "../Commits";
-import { Home } from "../Home";
-import { Repositories } from "../Repositories";
+import { Home } from "../home";
+import { Repositories } from "../repositories";
 
 export const AppRoutes: Array<RouteProps> = [
   {
@@ -9,11 +9,11 @@ export const AppRoutes: Array<RouteProps> = [
     element: <Home />,
   },
   {
-    path: "/repositories",
+    path: "/repositories/:username",
     element: <Repositories />,
   },
   {
-    path: "/commits",
+    path: "/commits/:username/:repository",
     element: <Commits />,
   },
 ];
