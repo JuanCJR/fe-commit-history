@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CommitInfoGrouped } from "../interfaces/commit";
 
 export function useCommit() {

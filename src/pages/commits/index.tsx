@@ -49,7 +49,7 @@ export const Commits = () => {
     }
 
     loadData();
-  }, []);
+  }, [toast, navigate, repoName, setCommit, username]);
 
   return (
     <BasePage isLoading={isLoading} isOpen={isOpen}>

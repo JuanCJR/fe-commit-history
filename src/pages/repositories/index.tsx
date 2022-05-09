@@ -49,7 +49,7 @@ export const Repositories = () => {
       }
     }
     loadData();
-  }, []);
+  }, [navigate, setRepository, toast, username]);
 
   return (
     <BasePage isLoading={isLoading} isOpen={isOpen}>
